@@ -1,39 +1,34 @@
-<?php
-require '../classes/CompteBancaire.php';
-
-if (isset($_POST['action'])) {
-    $compte = new CompteBancaire();
-
-    if ($_POST['action'] === 'depot') {
-        $montant = $_POST['montant'];
-        $compte->depot($montant);
-    } elseif ($_POST['action'] === 'retrait') {
-        $montant = $_POST['montant'];
-        $compte->retrait($montant);
-    }
-}
-?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gestion de Compte Bancaire</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>titre</title>
 </head>
 <body>
-    <h1>Gestion de Compte Bancaire</h1>
 
-    <form action="index.php" method="post">
-        <label for="montant">Montant :</label>
-        <input type="number" name="montant" required><br><br>
+<?php 
 
-        <button type="submit" name="action" value="depot">Dépôt</button>
-        <button type="submit" name="action" value="retrait">Retrait</button>
-    </form>
+require_once ('classes/CompteBancaire.php');
 
-    <?php
-    if (isset($compte)) {
-        $compte->affiche();
-    }
-    ?>
+
+$compteBancaire1 = new CompteBancaire();
+$compteBancaire2 = new CompteBancaire();
+$compteBancaire3 = new CompteBancaire('Clement', 3000);
+
+$compteBancaire1->depot(300);
+$compteBancaire1->retrait(50);
+
+$compteBancaire2->depot(5000);
+$compteBancaire2->retrait(500);
+
+$compteBancaire3->depot(150000)
+
+?>
+
+<h1><?= $compteBancaire1->affiche(); ?> $<h1>
+<h1><?= $compteBancaire2->affiche(); ?> $<h1>
+<h1><?= $compteBancaire3->affiche(); ?> $<h1>
+
 </body>
 </html>
