@@ -21,7 +21,7 @@ class CompteBancaire {
     }
 
     public function affiche() {
-        echo "Le solde du compte bancaire de $this->nom est de $this->solde euros.\n";
+        return "Le solde du compte bancaire de $this->nom est de $this->solde euros.\n";
     }
 }
 ?>
