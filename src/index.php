@@ -9,18 +9,20 @@
 
 <?php 
 
-require ('classe/CompteBancaire');
+require_once ('classes/CompteBancaire.php');
 
 
 $compteBancaire1 = new CompteBancaire();
 $compteBancaire2 = new CompteBancaire();
 $compteBancaire3 = new CompteBancaire('Clement', 3000);
 
-$compteBancaire1->depot(100);
+$compteBancaire1->depot(300);
 $compteBancaire1->retrait(50);
 
-$compteBancaire2->depot(2000);
+$compteBancaire2->depot(5000);
 $compteBancaire2->retrait(500);
+
+$compteBancaire3->depot(150000)
 
 ?>
 
